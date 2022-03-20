@@ -1,0 +1,59 @@
+@import './Variables.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  width: 100%;
+  padding: 40px;
+
+ .container-products {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 20px;
+   padding: 20px;
+   height: 100%;
+   width: 100%;
+   background: rgb(0,0,0);
+   background: linear-gradient(90deg, rgba(50,54,58,1) 0%, rgba(69,75,81,1) 100%);
+   border-radius: 10px;
+   box-shadow: 8px 8px 15px  rgba(0, 0, 0, 0.5  );
+   overflow-x: auto;
+ }
+
+ .card-products {
+   border-radius: 10px;
+   min-height: 80%;
+   min-width: 380px;
+   background: $light
+ }
+}
+
+@media (max-width: $device-xl) {
+  .container {
+    padding: 20px;
+    
+    .container-products {
+      justify-content: flex-start;  
+    }
+  }
+}
+
+@media (max-width: $device-lg) {
+  .container {
+    height: 100vh;
+    padding: 0;
+
+    .container-products {
+      justify-content: flex-start; 
+      border-radius: 0;
+    }
+
+    .card {
+      width: 345px;
+    } 
+  }
+}  
