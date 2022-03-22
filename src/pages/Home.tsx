@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import useSizeWindow from '../hooks/useSizeWindow';
+// import useSizeWindow from '../hooks/useSizeWindow';
 import Button from '../components/Button';
 
 import { IoChevronBack, IoChevronForward } from 'react-icons/io5';
