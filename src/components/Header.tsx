@@ -33,7 +33,7 @@ export default function Header () {
     } 
   }, [size.width, menuOpen]);
 
-  const closeMenu = () => {
+  const handleMenuMobile = () => {
     setMenuOpen(!menuOpen)
   };
 
@@ -42,13 +42,13 @@ export default function Header () {
     <nav className='nav'>
       <img className='logo' src={logo}/>
 
-      <ul className={`${menuOpen ? 'mobileList' : 'list'}`}  onClick={closeMenu}>
+      <ul className={`${menuOpen ? 'mobileList' : 'list'}`}  onClick={menuOpen ? handleMenuMobile : () => {}}>
         <Link to='/' className='li'>Home</Link>
         <Link to='/Cart' className='li'>Carrinho</Link>
         <Link to='/Login' className='li'>Login</Link>
       </ul>
 
-      <div className='mobileMenu' onClick={closeMenu}>
+      <div className='mobileMenu' onClick={handleMenuMobile}>
         { menuOpen ? <BiMenuAltRight/> : <BiMenu/> }
       </div>  
 

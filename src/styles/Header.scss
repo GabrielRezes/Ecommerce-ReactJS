@@ -1,9 +1,9 @@
 @import './Variables.scss';
 .nav {
-  position:block;
   display: flex;
   height: 80px;
-  width: 100vw;
+  width: 100%;
+  min-width: 350px;
   padding: 0 50px;
   font-size: 22px;
   justify-content: space-between;
@@ -11,31 +11,38 @@
   background: $secondary-color;
   color: $light;
 
-    ul>.li {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height:50px;
-      width:80px;
-      text-align: center;
-      text-decoration: none;
-      color: $light;
+  .li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:50px;
+    width:80px;
+    text-align: center;
+    text-decoration: none;
+    color: $light;
+    transition: 500ms all ease; 
 
-      :hover {
-        cursor: pointer;
-      }
+    &:last-child {
+      background: $primary-color;
+      padding: 10px;
+      border-radius: 5px;
 
-      &:last-child {
-        background: $primary-color;
-        padding: 10px;
-        border-radius: 5px;
+      &:active {
+        background: $secondary-color;
       }
     }
+  }
 
   .logo {
     width: 60px;
     height: 60px;
+    transition: 500ms all ease; 
   }  
+
+  .logo:hover, .li:hover {
+      cursor: pointer;
+      transform: translateY(-2px);
+  }
 }
 
 .list {
@@ -59,10 +66,6 @@
       height: 40px;
     } 
   }
-
-  .list {
-    font: 16px;
-  }
 }
 
 @media (max-width: $device-md) {
@@ -73,17 +76,33 @@
   .mobileList {
     position: absolute;
     display: flex;
-    justify-content:center;
-    align-items: center;
-    gap: 30px;
-    flex-direction: column;
     top: 0;
     right: 0;
+    padding: 0;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    min-width: 320px;
+    min-height: 250px;
     background: rgba(10, 10, 10, 0.9);
-    min-height: 100vh;
-    min-width: 100vw;
     font-size: 18px;
     font-weight: 700;
+    margin-top: 60px;
+    border-radius: 0 0 10px 10px;
+    animation: open 300ms ease-in-out;
+  }
+
+  @keyframes open {
+    0% {
+      right: -100%;
+    }
+
+    100% {
+      top: 0;
+      right: 0;
+    }
   }
 
   .mobileMenu {
@@ -92,6 +111,3 @@
     z-index: 2;
   }
 }
-
-
-

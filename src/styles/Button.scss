@@ -1,0 +1,58 @@
+@import './Variables.scss';
+
+.primary,
+.secondary {
+  background: $primary-color;
+  text-transform: uppercase;
+  color: $light;
+  width: 250px;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 18px;
+  border: 2px solid transparent;
+  outline: none;
+  transition: 150ms all ease; 
+
+
+  &:hover {
+    border: 2px solid $primary-color;
+    cursor: pointer;
+  }
+
+  &:active {
+    transform: translateY(2px);
+
+  }
+}
+
+.secondary {
+  background: $secondary-color;
+
+  &:hover {
+    border: 2px solid $secondary-color;
+    cursor: pointer;
+  }
+
+  &:active {
+    transform: translateY(2px);
+
+  }
+}
+
+@media (min-width: $device-md) {
+
+  .primary,
+  .secondary {
+      font-size: 18px;
+      height: 50px;
+  }
+}
+
+@media (min-width: $device-lg) {
+
+  .primary,
+  .secondary {
+      font-size: 24;
+
+  }
+}

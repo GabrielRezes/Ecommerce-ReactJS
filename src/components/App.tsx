@@ -5,7 +5,7 @@ import '../styles/Global.scss';
 
 export default function App() {
   return (
-    <div>
+    <div className='app'>
       <Header/>
       <AppRoutes/>
     </div>
