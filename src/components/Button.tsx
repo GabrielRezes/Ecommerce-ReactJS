@@ -1,4 +1,4 @@
-interface PropsButton {
+interface ButtonProps {
   text: string;
   variant: string;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
@@ -6,8 +6,7 @@ interface PropsButton {
 
 import '../styles/Button.scss'
 
-export default function Button({text, variant, onClick}: PropsButton ) {
-    console.log('teste')
+export default function Button({text, variant, onClick}: ButtonProps ) {
   return (
     <button onClick={onClick} className={variant === 'primary' ? 'primary' : 'secondary'}>{text}</button>
   );
