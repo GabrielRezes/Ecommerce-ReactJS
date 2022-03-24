@@ -4,10 +4,17 @@ interface ButtonProps {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-import '../styles/Button.scss'
+import '../../styles/Button.scss'
 
 export default function Button({text, variant, onClick}: ButtonProps ) {
   return (
-    <button onClick={onClick} className={variant === 'primary' ? 'primary' : 'secondary'}>{text}</button>
+    <button 
+      onClick={onClick} 
+      className={
+        variant === "primary" 
+        ? "primary" 
+        : "secondary"}
+    > {text}
+    </button>
   );
 };

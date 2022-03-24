@@ -1,7 +1,5 @@
-import React from 'react';
-
-import Button from './Button';
-import '../styles/Products.scss';
+import Button from '../Button/Button';
+import '../../styles/Products.scss';
 
 const products = [
   {id: 1, name: 'iphone 8', price: 'R$ 2.000', img:'https://m.media-amazon.com/images/I/516LM9NTSfL._AC_SY879_.jpg'},
@@ -14,12 +12,12 @@ interface addProductProps {
   addProduct: () => void
 }
 
-export default function Products ({ addProduct } : addProductProps) {
+export default function ProductsDefault ({ addProduct } : addProductProps) {
   return(
     <>
       { products.map((product, index) => {
         return(
-          <li className='card-product' key={index}>
+          <li className="card-product" key={index}>
             <span className='title-product'>{product.name}</span>
             <span className='title-product'>{product.price}</span>
             <img className='img-product' src={product.img}/>

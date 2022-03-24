@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Button from './Button';
+import Button from '../Button/Button';
 
 import { IoChevronBack, IoChevronForward } from 'react-icons/io5';
-import '../styles/Products.scss';
+import '../../styles/Products.scss';
 
 const products = [
   {id: 1, name: 'iphone 8', price: 'R$ 2.000', img:'https://m.media-amazon.com/images/I/516LM9NTSfL._AC_SY879_.jpg'},
