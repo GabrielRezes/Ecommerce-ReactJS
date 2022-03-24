@@ -1,4 +1,4 @@
-import react, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 interface SizeWindowProps {
   height: number | undefined,
@@ -12,19 +12,15 @@ export default function useSizeWindow () {
   });
 
   useEffect(() => {
-    
     const handleResize = () => {
       setSizeWindow({
         height: window.innerHeight,
         width: window.innerWidth
       });
     };
-    
     window.addEventListener('resize', handleResize);
-    
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  return [sizeWindow]
-  
+  return [sizeWindow];
 }; 
