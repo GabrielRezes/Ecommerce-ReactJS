@@ -6,11 +6,6 @@ import { BiMenu, BiMenuAltRight } from 'react-icons/bi';
 import logo from '../../assets/logo.svg';
 import '../../styles/Header.scss';
 
-interface SizeWindow {
-  width: number,
-  height: number,
-};
-
 export default function Header () {
   const [ isMobile, setIsMobile ] = useState<Boolean>(false);
   const [ sizeWindow ] = useSizeWindow();

@@ -15,10 +15,6 @@ interface addProductProps {
   addProduct: () => void
 }
 
-interface changeProductProps {
-  onClick: DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> || undefined
-}
-
 export default function ProductsCarrousel ({ addProduct }: addProductProps) {
   const [ currProductImage, setCurrProductImage ] = useState<number>(0);
 
@@ -35,8 +31,8 @@ export default function ProductsCarrousel ({ addProduct }: addProductProps) {
       </div>
   
       <li className='card-product'>
-          <span className='title-product'>{products[currProductImage].name}</span>
-          <span className='title-product'>{products[currProductImage].price}</span>
+            <span className='title-product'>{products[currProductImage].name}</span>
+            <span className='title-product'>{products[currProductImage].price}</span>
           <img className='img-product' src={products[currProductImage].img}/>
           <Button onClick={addProduct} text="Adicionar ao carrinho" variant='secondary'/>
       </li>

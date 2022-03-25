@@ -16,7 +16,7 @@ export default function Products () {
     <div className='container-page'>
       <h1 className='title'>Produtos</h1>
         <ul className='container-products'>
-          {sizeWindow.width && sizeWindow.width < 999 
+          {sizeWindow.width && sizeWindow.width < 700
           ? <ProductsCarrousel addProduct={addProduct}/>
           : <ProductsDefault addProduct={addProduct}/>}
         </ul> 
