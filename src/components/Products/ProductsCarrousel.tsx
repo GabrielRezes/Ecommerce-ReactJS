@@ -19,8 +19,8 @@ export default function ProductsCarrousel ({ addProduct }: addProductProps) {
   const [ currProductImage, setCurrProductImage ] = useState<number>(0);
 
   const handleClick = (event: any) => {
-    if(event.target.id === 'previous' && currProductImage > 0) setCurrProductImage(currProductImage - 1)
-    if(event.target.id === 'next' && currProductImage < products.length - 1) setCurrProductImage(currProductImage + 1)
+    if(event.target.id === 'previous' && currProductImage > 0) setCurrProductImage(currProductImage - 1);
+    if(event.target.id === 'next' && currProductImage < products.length - 1) setCurrProductImage(currProductImage + 1);
   }
 
   return(
