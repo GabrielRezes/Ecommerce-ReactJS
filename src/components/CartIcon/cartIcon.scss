@@ -1,0 +1,11 @@
+@import '../../styles/variables.scss';
+
+.container-cart {
+  color: $dark;
+
+  .icon {
+    cursor: pointer;
+    transform: translateY(-3px)
+  }
+ 
+}
