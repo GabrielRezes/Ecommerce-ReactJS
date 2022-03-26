@@ -1,7 +1,7 @@
 import AppRoutes from '../../routes/Routes';
 import Header from '../Header/Header';
 
-import '../../styles/Global.scss';
+import '../../styles/global.scss';
 
 export default function App() {
   return (

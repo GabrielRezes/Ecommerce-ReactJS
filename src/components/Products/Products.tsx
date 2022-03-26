@@ -3,7 +3,7 @@ import ProductsCarrousel from './ProductsCarrousel';
 import ProductsDefault from './ProductsDefault';
 import useSizeWindow from '../../hooks/useSizeWindow';
 
-import '../../styles/Products.scss';
+import './products.scss';
 
 export default function Products () {
   const [ sizeWindow ] = useSizeWindow()

@@ -1,5 +1,5 @@
 import Button from '../Button/Button';
-import '../../styles/Products.scss';
+import './products.scss';
 
 const products = [
   {id: 1, name: 'iphone 8', price: 'R$ 2.000', img:'https://m.media-amazon.com/images/I/516LM9NTSfL._AC_SY879_.jpg'},

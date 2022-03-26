@@ -1,0 +1,101 @@
+@import '../../styles/variables.scss';
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  text-transform: uppercase;
+
+  .iconMobileMenu {
+    display: flex;
+    font-size: 42px;
+    color: $blue;
+  }
+
+  .list {
+    display:none
+  }
+
+  .mobileList {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    min-width: 320px;
+    min-height: 250px;
+    background-color: #00000010;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 80px;
+    border-radius: 0 0 10px 10px;
+    z-index: 3;
+    animation: open 300ms ease-in-out;
+  }
+
+  @keyframes open {
+    0% {
+      right: -100%;
+    }
+
+    100% {
+      top: 0;
+      right: 0;
+    }
+  }
+     
+  .li {
+    text-decoration: none;
+    color: $grey;
+    transition: 200ms ease-in all;
+
+    &:hover {
+      cursor: pointer;
+      transform: translateY(-3px)
+    }
+
+    &:last-child {
+      color: $blue;
+      border: 3px solid $blue;
+      padding: 5px 25px;
+      border-radius: 25px;
+     }
+  }
+}  
+
+@media (min-width: $device-sm) {
+  .nav {
+   padding: 10px 25px;
+  }
+}
+
+@media (min-width: $device-md) {
+  .nav {
+    .iconMobileMenu { 
+      display: none;
+    }
+    
+    .list {
+      display:flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 20px;
+      font-weight: 400;
+      width: 420px;
+    }
+  }
+}
+
+@media (min-width: $device-lg) {
+  .nav {
+    justify-content: space-evenly
+  }
+}
