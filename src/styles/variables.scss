@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
 $Poppins: 'Poppins', sans-serif;
 
 $device-sm: 320px;
@@ -7,9 +7,15 @@ $device-lg: 999px;
 $device-xl: 1700px;
 
 $light: #fff;
-$dark: #121214;
-$base-color: #fefefe;
-$primary-color: #f534ed;
+$dark: #0E0E0F;
+$blue: #203DEC;
+$grey-light: #A3A3A3;
+$grey: #3F383A;
+
+
+$base-background: #FAFAFC;
+
+$primary-color: #203DEC;
 $secondary-color: #262a2d;
 
 
