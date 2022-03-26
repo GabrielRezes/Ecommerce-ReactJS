@@ -1,4 +1,4 @@
-// export default(state = {}, { type, payload}) => {
+// export default(state = {}, action) => {
 //   switch(type){
 //     case 'ADD_PRODUCT':
 //       return {
@@ -15,3 +15,5 @@
 //     }  
 //   }
 // }
+
+export default function cartReducer () { return ''}
