@@ -1,0 +1,20 @@
+@import '../../styles/variables.scss';
+
+.container-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  .logo {
+    height: 70px;
+    width: 70px;
+  }
+
+  &>h1{
+    color: $grey;
+    font-weight: 200;
+    font-size: 28px;
+    letter-spacing: 2px;
+  }
+}
