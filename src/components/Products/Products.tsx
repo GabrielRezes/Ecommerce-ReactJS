@@ -1,7 +1,12 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { addProduct, removeProduct } from '../../redux/actions/products';
+
 import ProductsCarousel from '../ProductsCarousel/ProductsCarousel';
 import Button from '../Button/Button';
 import TitlePage from '../TitlePage/TitlePage';
+
+
 import useSizeWindow from '../../hooks/useSizeWindow';
 
 import './products.scss';
@@ -14,11 +19,26 @@ const products = [
 ];
 
 export default function Products () {
+  const dispatch = useDispatch();
+  const { cart } = useSelector(store => store);
   const { isMobile } = useSizeWindow()
 
+  let product = {
+    name: 'produto1',
+    price: 'R$ 1200'
+
+  }
+
   const addProduct = () => {
-    console.log('Add');
+    dispatch(addProduct())
   };
+
+  const addProdutcTeste = () => {
+    // dispatch(addProduct())
+    console.log('oi')
+  };
+
+  console.log(cart)
 
   return(
     <div className="container-products">
@@ -34,7 +54,7 @@ export default function Products () {
                       <span className="name-product">{product.name}</span>
                       <span className="price-product">{product.price}</span>
                       <img className="img-product" src={product.img}/>
-                      <Button onClick={addProduct} text="Adicionar ao carrinho" variant='primary'/>
+                      <Button onClick={addProdutcTeste} text="Adicionar ao carrinho" variant='primary'/>
                   </li>
                 );
               })}
