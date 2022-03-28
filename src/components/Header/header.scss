@@ -4,8 +4,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 15px;
-  text-transform: uppercase;
+  padding: 10px;
+
 
   .iconMobileMenu {
     display: flex;
@@ -17,7 +17,7 @@
     display:none
   }
 
-  .mobileList {
+  .mobile-list {
     position: absolute;
     top: 0;
     right: 0;
@@ -53,6 +53,7 @@
   }
      
   .li {
+    text-transform: uppercase;
     text-decoration: none;
     color: $grey;
     transition: 200ms ease-in all;
@@ -87,7 +88,7 @@
       display:flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 400;
       width: 420px;
     }

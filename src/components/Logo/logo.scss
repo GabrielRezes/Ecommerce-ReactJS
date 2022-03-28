@@ -14,7 +14,13 @@
   &>h1{
     color: $grey;
     font-weight: 200;
-    font-size: 28px;
+    font-size: 25px;
     letter-spacing: 2px;
+  }
+}
+
+@media (min-width: $device-md) {
+  h1 {
+    font-size: 28px;
   }
 }
