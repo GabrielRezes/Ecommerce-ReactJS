@@ -1,25 +1,45 @@
 import React from 'react';
-import ProductsCarrousel from './ProductsCarrousel';
-import ProductsDefault from './ProductsDefault';
+import ProductsCarousel from '../ProductsCarousel/ProductsCarousel';
+import Button from '../Button/Button';
+import TitlePage from '../TitlePage/TitlePage';
 import useSizeWindow from '../../hooks/useSizeWindow';
 
 import './products.scss';
 
+const products = [
+  {id: 1, name: 'iphone 8', price: 'R$ 2.000', img:'https://m.media-amazon.com/images/I/516LM9NTSfL._AC_SY879_.jpg'},
+  {id: 2, name: 'iphone 9', price: 'R$ 3.999', img:'https://m.media-amazon.com/images/I/610D42wRbWL._AC_SX679_.jpg'},
+  {id: 3, name: 'iphone 10', price: 'R$ 4.999', img:'https://m.media-amazon.com/images/I/516LM9NTSfL._AC_SY879_.jpg'},
+  {id: 4, name: 'iphone 11', price: 'R$ 5.999', img:'https://m.media-amazon.com/images/I/610D42wRbWL._AC_SX679_.jpg'},
+];
+
 export default function Products () {
-  const [ sizeWindow ] = useSizeWindow()
+  const { isMobile } = useSizeWindow()
 
   const addProduct = () => {
     console.log('Add');
   };
 
   return(
-    <div className='container-page'>
-      <h1 className='title'>Produtos</h1>
-        <ul className='container-products'>
-          {sizeWindow.width && sizeWindow.width < 700
-          ? <ProductsCarrousel addProduct={addProduct}/>
-          : <ProductsDefault addProduct={addProduct}/>}
-        </ul> 
+    <div className="container-products">
+      <TitlePage title="Produtos"/>
+      
+      { isMobile 
+          ? <ProductsCarousel addProduct={addProduct}/>
+          
+          : <ul className="products">
+              {products.map((product, index) => {
+                return(
+                  <li className="card-product" key={index}>
+                      <span className="name-product">{product.name}</span>
+                      <span className="price-product">{product.price}</span>
+                      <img className="img-product" src={product.img}/>
+                      <Button onClick={addProduct} text="Adicionar ao carrinho" variant='primary'/>
+                  </li>
+                );
+              })}
+            </ul>
+      }
     </div>
   );
 };
