@@ -11,6 +11,8 @@ export default function useSizeWindow () {
     width: window.innerWidth
   });
 
+  const [ isMobile, setIsMobile ] = useState<boolean>(true);
+
   useEffect(() => {
     const handleResize = () => {
       setSizeWindow({
@@ -22,5 +24,11 @@ export default function useSizeWindow () {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  return [sizeWindow];
+  useEffect(() => {
+    sizeWindow.width && sizeWindow.width > 700 
+      ? setIsMobile(false) 
+      : setIsMobile(true) ;
+  },[sizeWindow.width]);
+
+  return  { isMobile }; 
 }; 
