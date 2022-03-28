@@ -11,28 +11,41 @@ import './header.scss';
 
 
 export default function Header () {
-  const [ isMobile, setIsMobile ] = useState<boolean>(false);
-  const [ sizeWindow ] = useSizeWindow();
+  const [ showMenu, setShowMenu ] = useState<boolean>(false);
+  const { isMobile }   = useSizeWindow();  
 
-  useEffect(() => {
-    if(sizeWindow.width && sizeWindow.width > 700 && isMobile) setIsMobile(false);
-    return; 
-  }, [sizeWindow.width, isMobile]);
+  useEffect(() => {!isMobile && (setShowMenu(false));
+  }, [isMobile]);
 
-  const handleMobileMenu = () => {setIsMobile(!isMobile)};
+  const handleShowMenu = () => {setShowMenu(!showMenu)};
 
   return (
     <nav className="nav">
       <Logo/>    
-      <ul className={`${isMobile ? "mobileList" : "list"}`}  onClick={isMobile ? handleMobileMenu : () => {}}>
-        <CartIcon/>
-        <Link to='/' className="li">Home</Link>
-        <Link to='/Cart' className="li">Carrinho</Link>
-        <Link to='/Login' className="li">Login</Link>
-      </ul>
-      <div className="iconMobileMenu" onClick={handleMobileMenu}>
-        { isMobile ? <BiMenuAltRight/> : <BiMenu/> }
-      </div>  
+      { isMobile 
+        ?
+            <>
+            <div className="iconMobileMenu" onClick={handleShowMenu}>
+              { showMenu ? <BiMenuAltRight/> : <BiMenu/> }
+            </div>  
+
+            { showMenu &&
+              <ul className="mobile-list" onClick={handleShowMenu}>
+                <CartIcon/>
+                <Link to='/' className="li">Home</Link>
+                <Link to='/Cart' className="li">Carrinho</Link>
+                <Link to='/Login' className="li">Login</Link>
+              </ul>
+            }
+          </>  
+        :
+          <ul className="list">
+            <CartIcon/>
+            <Link to='/' className="li">Home</Link>
+            <Link to='/Cart' className="li">Carrinho</Link>
+            <Link to='/Login' className="li">Login</Link>
+          </ul>
+      }
     </nav>
   );
 };
