@@ -1,21 +1,24 @@
-// interface ProductProps {
-//   product: {
-//     name: 'string',  
-//     price: 'string'
-//   }
-// }
+type PropsProduct = {
+  id: number,
+  name: string,
+  price: string,
+  img: string
+}
 
-const addProduct = () => {
+const addProduct = (product : PropsProduct) => {
+
+  console.log('Na ACTION:', product)
+
   return {
     type: 'ADD_PRODUCT',
-    payload: 1 + 2
+    payload: product
   }
 }
 
-const removeProduct = () => {
+const removeProduct = (product : PropsProduct) => {
   return {
     type: 'REMOVE_PRODUCT',
-    payload: 1 + 2
+    payload: product
   }
 } 
 

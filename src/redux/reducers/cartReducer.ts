@@ -1,4 +1,4 @@
-export default(state = [1], action:any) => {
+export default(state = ['reducer cart'], action:any) => {
   switch(action.type){
     case 'ADD_PRODUCT':
       return state = [...state, action.payload]
