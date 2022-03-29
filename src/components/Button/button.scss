@@ -13,17 +13,13 @@
   margin-top: 10px;
   transition: 150ms all ease; 
   border: none;
+  cursor: pointer;
+
   box-shadow: 2px 2px 2px $grey-light; 
 
-  &:hover {
-    // border: 2px solid $blue;
-    cursor: pointer;
+  &:active {
+    opacity: 90%;
   }
-
-//   &:active {
-//     transform: translateY(2px);
-
-//   }
 }
 
 .secondary {

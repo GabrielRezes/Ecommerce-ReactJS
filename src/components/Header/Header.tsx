@@ -33,7 +33,7 @@ export default function Header () {
               <ul className="mobile-list" onClick={handleShowMenu}>
                 <CartIcon/>
                 <Link to='/' className="li">Home</Link>
-                <Link to='/Cart' className="li">Carrinho</Link>
+                <Link to='/Cart' className="li">Sobre</Link>
                 <Link to='/Login' className="li">Login</Link>
               </ul>
             }
@@ -42,7 +42,7 @@ export default function Header () {
           <ul className="list">
             <CartIcon/>
             <Link to='/' className="li">Home</Link>
-            <Link to='/Cart' className="li">Carrinho</Link>
+            <Link to='/Cart' className="li">Sobre</Link>
             <Link to='/Login' className="li">Login</Link>
           </ul>
       }

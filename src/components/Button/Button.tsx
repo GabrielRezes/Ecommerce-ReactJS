@@ -1,14 +1,14 @@
 import React from 'react';
 
-interface ButtonProps {
+type PropsButton =  {
   text: string;
   variant: string;
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  onClick: React.MouseEventHandler<HTMLButtonElement>  
 }
 
 import './button.scss'
 
-export default function Button({text, variant, onClick}: ButtonProps ) {
+export default function Button({text, variant, onClick}: PropsButton ) {
   return (
     <button 
       onClick={onClick} 
