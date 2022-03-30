@@ -1,21 +1,17 @@
 import React,  { useState, FC } from 'react';
+
+import { PropsProduct } from '../../types';
 import Button from '../Button/Button';
 
 import { IoChevronBack, IoChevronForward } from 'react-icons/io5';
 import './productsCarousel.scss';
 
-const products = [
-  {id: 1, name: 'iphone 8', price: 'R$ 2.000', img:'https://m.media-amazon.com/images/I/516LM9NTSfL._AC_SY879_.jpg'},
-  {id: 2, name: 'iphone 9', price: 'R$ 3.999', img:'https://m.media-amazon.com/images/I/610D42wRbWL._AC_SX679_.jpg'},
-  {id: 3, name: 'iphone 10', price: 'R$ 4.999', img:'https://m.media-amazon.com/images/I/516LM9NTSfL._AC_SY879_.jpg'},
-  {id: 4, name: 'iphone 11', price: 'R$ 5.999', img:'https://m.media-amazon.com/images/I/610D42wRbWL._AC_SX679_.jpg'},
-];
-
-type PropsAddProduct = {
-  addProduct: React.FC;
+type PropsProductComponent = {
+  add: React.MouseEventHandler<HTMLButtonElement>
+  products: PropsProduct[]
 };
 
-export default function ProductsCarousel ({ addProduct }: PropsAddProduct) {
+export default function ProductsCarousel ({ add, products }: any) {
   const [ currProduct, setCurrProduct ] = useState<number>(0);
 
   const handleClick = (event: any) => {
@@ -34,7 +30,7 @@ export default function ProductsCarousel ({ addProduct }: PropsAddProduct) {
             <span className='name-product'>{products[currProduct].name}</span>
             <span className='price-product'>{products[currProduct].price}</span>
           <img className='img-product' src={products[currProduct].img}/>
-          <Button onClick={() => addProduct(  products[currProduct] )} text="Adicionar ao carrinho" variant='primary'/>
+          <Button onClick={() => add(products[currProduct])} text="Adicionar ao carrinho" variant='primary'/>
       </li> 
     </ul>
   );
