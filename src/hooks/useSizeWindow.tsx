@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 
-interface SizeWindowProps {
+type PropsSizeWindow = {
   height: number | undefined,
   width: number | undefined
 };
 
 export default function useSizeWindow () {
-  const [ sizeWindow, setSizeWindow ] = useState<SizeWindowProps>({
+  const [ sizeWindow, setSizeWindow ] = useState<PropsSizeWindow>({
     height: window.innerHeight,
     width: window.innerWidth
   });
@@ -25,9 +25,9 @@ export default function useSizeWindow () {
   }, []);
 
   useEffect(() => {
-    sizeWindow.width && sizeWindow.width > 700 
+    sizeWindow.width && sizeWindow.width > 720 
       ? setIsMobile(false) 
-      : setIsMobile(true) ;
+      : setIsMobile(true);
   },[sizeWindow.width]);
 
   return  { isMobile }; 
