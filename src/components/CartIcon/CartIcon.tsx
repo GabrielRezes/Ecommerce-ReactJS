@@ -4,8 +4,15 @@ import { RiShoppingCart2Fill } from 'react-icons/ri';
 import { useNavigate } from 'react-router-dom';
 import './cartIcon.scss';
 
+type PropsProduct = {
+  id: number,
+  name: string,
+  price: string,
+  img: string
+}
+
 export default function CartIcon () {
-  const { cart } = useSelector(store => store);
+  const { cart }: any  = useSelector(store => store);
   const navigate = useNavigate();
 
   const toCart = () => {
