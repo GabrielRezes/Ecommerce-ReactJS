@@ -5,6 +5,11 @@ export type PropsProduct = {
   img: string
 };
 
+export type Login =  {
+  name: string,
+  email: string
+}; 
+
 export interface PropsProductComponent {
   add: CallableFunction,
   products: PropsProduct[]
