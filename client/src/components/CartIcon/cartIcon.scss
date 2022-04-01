@@ -1,0 +1,26 @@
+@import '../../styles/variables.scss';
+
+.container-cart-icon {
+  position: relative;
+  color: $dark;
+  cursor: pointer;
+
+  .icon {
+    transform: translateY(-3px)
+  }
+
+  &>span {
+    position: absolute;
+    right: 0%;
+    display: flex;
+    justify-content: center;
+    color: $light;
+    background: rgb(84, 202, 84);
+    font-weight: 600;
+    font-size: 16px;
+    height: 22px;
+    width: 22px;
+    border-radius: 100%;
+  }
+ 
+}
