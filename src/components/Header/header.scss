@@ -6,16 +6,17 @@
   align-items: center;
   padding: 10px;
 
-  .no-mobile {
-    display: none;
-  }
 
   .iconMobileMenu {
     display: flex;
     font-size: 42px;
     color: $blue;
   }
-  
+
+  .list {
+    display:none
+  }
+
   .mobile-list {
     position: absolute;
     top: 0;
@@ -79,15 +80,10 @@
 
 @media (min-width: $device-md) {
   .nav {
-
-    .mobile {
-      display: none
-    }  
-
-    .no-mobile {
-      display: flex;
+    .iconMobileMenu { 
+      display: none;
     }
-
+    
     .list {
       display:flex;
       justify-content: space-between;
