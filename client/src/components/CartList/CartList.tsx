@@ -5,6 +5,7 @@ import './cartList.scss';
 export default function CartList () {
   const { cart }:any = useSelector(store => store);
 
+  console.log('test')
   
   return (
     <div className="container-cart">
