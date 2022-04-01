@@ -1,7 +1,7 @@
 @import '../../styles//variables.scss';
 
 .container-cart {
-    // display: flex;
+    display: flex;
     justify-content: center;
     height: 100%;
     margin-top: 15px;
@@ -21,7 +21,7 @@
         box-shadow: 4px 4px 4px 1px rgba(180, 180, 180, 0.3);
 
         .product {
-          display: block;
+          // display: block;
 
           img {
             width: 100px;
@@ -34,7 +34,6 @@
           }
         }
 
-        
         .info {
           align-self: center;
           margin: 0 auto;

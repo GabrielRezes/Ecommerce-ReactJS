@@ -5,8 +5,6 @@ import './cartList.scss';
 export default function CartList () {
   const { cart }:any = useSelector(store => store);
 
-  console.log('test')
-  
   return (
     <div className="container-cart">
       <ul className="list">
@@ -19,9 +17,11 @@ export default function CartList () {
                 <p>{product.name}</p>
               </div>
 
-              <p className="info">{product.price}</p>
+              <div className="info">
+                <p>{product.price}</p>  
+                <span className="total">{}</span>
+              </div>
 
-              <span className="total">{}</span>
             </li>
           )
         })}
