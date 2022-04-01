@@ -1,12 +1,8 @@
 import React from 'react';
 import Button from '../Button/Button';  
-import { PropsProduct } from '../../types';
+import { PropsProductComponent } from '../../types';
 import './products.scss';
 
-type PropsProductComponent = {
-  add: React.MouseEventHandler<HTMLButtonElement>;
-  products: PropsProduct[]
-};
 
 export default function Products ({ add, products }: any) {
   return (

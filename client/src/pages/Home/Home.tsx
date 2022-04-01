@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { addProduct, removeProduct } from '../../redux/actions/products';
+import { addProductAction, removeProductAction } from '../../redux/actions/products';
 
 import ProductsCarousel from '../../components/ProductsCarousel/ProductsCarousel';
 import TitlePage from '../../components/TitlePage/TitlePage';
@@ -10,19 +10,18 @@ import { PropsProduct } from '../../types';
 import { productList } from '../../mocks/products';
 import useSizeWindow from '../../hooks/useSizeWindow';
 
-import './home.scss';
+import '../../styles/global.scss';
 
 export default function Home () {
   const dispatch = useDispatch();
   const { isMobile } = useSizeWindow()
 
   const addProductToCart = (product : PropsProduct) =>  {
-    console.log(product)
-    dispatch(addProduct(product));
+    dispatch(addProductAction(product));
   };
 
   return(
-    <section className="container-products">
+    <section className="container">
       <TitlePage title="Produtos"/>
       { isMobile 
           ? <ProductsCarousel products={productList} add={addProductToCart}/>

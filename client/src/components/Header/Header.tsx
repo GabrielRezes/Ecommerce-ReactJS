@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import useSizeWindow from '../../hooks/useSizeWindow';
 
 import CartIcon from '../CartIcon/CartIcon';
 import Logo from '../Logo/Logo';
 
 import { BiMenu, BiMenuAltRight } from 'react-icons/bi';
+import useSizeWindow from '../../hooks/useSizeWindow';
 import './header.scss';
 
 
@@ -22,7 +22,6 @@ export default function Header () {
   return (
     <nav className="nav">
       <Logo/>    
-
         <div className="mobile">
           <div className="iconMobileMenu" onClick={handleShowMenu}>
             { showMenu ? <BiMenuAltRight/> : <BiMenu/> }
@@ -32,8 +31,8 @@ export default function Header () {
             <ul className="mobile-list" onClick={handleShowMenu}>
               <CartIcon/>
               <Link to='/' className="li">Home</Link>
-              <Link to='/Cart' className="li">Sobre</Link>
-              <Link to='/Login' className="li">Login</Link>
+              <Link to='/cart' className="li">Sobre</Link>
+              <Link to='/login' className="li">Login</Link>
             </ul>
           }
         </div>
@@ -46,9 +45,6 @@ export default function Header () {
             <Link to='/Login' className="li">Login</Link>
           </ul>
         </div>  
-
     </nav>
-
-    
   );
 };

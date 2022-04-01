@@ -1,17 +1,13 @@
 import React,  { useState, FC } from 'react';
 
-import { PropsProduct } from '../../types';
+import { PropsProductComponent } from '../../types';
 import Button from '../Button/Button';
 
 import { IoChevronBack, IoChevronForward } from 'react-icons/io5';
 import './productsCarousel.scss';
 
-type PropsProductComponent = {
-  add: React.MouseEventHandler<HTMLButtonElement>
-  products: PropsProduct[]
-};
 
-export default function ProductsCarousel ({ add, products }: any) {
+export default function ProductsCarousel ({ add, products }: PropsProductComponent) {
   const [ currProduct, setCurrProduct ] = useState<number>(0);
 
   const handleClick = (event: any) => {
