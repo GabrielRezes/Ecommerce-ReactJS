@@ -26,6 +26,5 @@
         "no-console": "error",
         "quotes": "single",
         "jsx-quotes": "prefer-double"
-
     }
 }
