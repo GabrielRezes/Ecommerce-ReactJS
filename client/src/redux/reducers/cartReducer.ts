@@ -7,20 +7,26 @@ interface PropsAction  {
 
 type Action = PropsAction
 
-export default(state:any = [], action:Action) => {
+
+export default(state:PropsProduct[] = [], action:Action) => {
+
   switch(action.type){
 
     case 'ADD_PRODUCT':
-      return state = [ ...state, action.payload ];
+      let productFound:number = state.findIndex((prod:PropsProduct) => prod.id === action.payload.id)
 
-    // case 'REMOVE_PRODUCT':
-    //   return {
+      if (productFound < 0 ) {
+        action.payload.qnt = 1;
+        state = [ ...state, action.payload ];
+        console.log(state);
+      } else {
+        state[productFound].qnt += 1;
+        console.log(state);
+      }
 
-    //   }  
+      return state;
 
     default :
       return state  ;
   }
 }
-
-// export default function cartReducer () { return ''}
