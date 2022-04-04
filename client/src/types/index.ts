@@ -3,6 +3,7 @@ export type PropsProduct = {
   name: string,
   price: string,
   img: string
+  qnt?: number;
 };
 
 export type Login =  {
