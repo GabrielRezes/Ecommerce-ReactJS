@@ -26,6 +26,11 @@ export default(state:PropsProduct[] = [], action:Action) => {
 
       return state;
 
+    case 'REMOVE_PRODUCT':
+      // let newState = state.map((prod:PropsProduct) => )
+
+      return state;
+
     default :
       return state  ;
   }
