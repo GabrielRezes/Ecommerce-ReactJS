@@ -39,14 +39,14 @@ export default function CartList () {
                 <p className="name-product">{product.price}</p>
                 <div className="qnt-product">
                   <button 
-                    onClick={() => dispatch(addProductAction(product))} 
+                    onClick={() => dispatch(removeProductAction(product))} 
                     className="btn"> - 
                   </button>
                   
                     <span>{product.qnt}</span>
                   
                   <button 
-                    onClick={() => dispatch(removeProductAction(product))} 
+                    onClick={() => dispatch(addProductAction(product))} 
                     className="btn"> + 
                   </button>
                 </div>  
