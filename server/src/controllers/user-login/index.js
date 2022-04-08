@@ -5,10 +5,9 @@ const jwt = require('jsonwebtoken');
 module.exports = async (req, res) => {
   const { email, password } = req.body;
 
-  if(!email) return res.status(422).json({msg:'Email é obrigatório'});
-  if(!password) return res.status(422).json({msg:'Senha é obrigatório'});  
+  if(!email || !password) return res.status(422).json({msg:'Email ou Senha incorretos!'});
   
-  const user = await User.findOne({email: email});
+  const user = await User.findOne({email});
 
   if(!user) return res.status(404).json({msg: 'Usuário não encontrado'});
   
