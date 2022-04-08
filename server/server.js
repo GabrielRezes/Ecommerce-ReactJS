@@ -1,7 +1,7 @@
 // imports
 const express = require('express');
 const database = require('./src/database');
-const { checkToken } = require('./src/middleware');
+const auth = require('./src/middleware/auth');
 
 const app = express();
 
@@ -12,12 +12,14 @@ const userLogin = require('./src/controllers/user-login');
 const userCart = require('./src/controllers/user-cart');
 
 
-app.get('/cart/:id', checkToken, async (req, res) => userCart(req, res));
-
-app.post('/auth/register', async(req, res) => userRegister(req, res));
+app.post('/auth/register', async (req, res) => userRegister(req, res));
 
 app.post('/auth/login', async(req, res) => userLogin(req, res));
 
+app.use(auth);
 
-database();
-app.listen(3001);
+app.get('/cart/:id', async (req, res) => userCart(req, res));
+
+
+database(); 
+app.listen(3001, () => console.log(`App listening on port 3001`));
