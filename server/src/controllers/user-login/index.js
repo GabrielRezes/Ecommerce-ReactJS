@@ -1,6 +1,6 @@
 const User = require('../../models/User');
-const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const { checkPassword } = require('../../services/auth');
 
 module.exports = async (req, res) => {
   const { email, password } = req.body;
@@ -11,20 +11,27 @@ module.exports = async (req, res) => {
 
   if(!user) return res.status(404).json({msg: 'Usuário não encontrado'});
   
-  const checkPassword = await bcrypt.compare(password, user.password);
-  
-  if(!checkPassword) return res.status(422).json({msg: 'Senha inválida'});
+  const authorized = await checkPassword(password, user);
+
+  if(!authorized) return res.json({msg: 'não autorizado'})
+
+  console.log(authorized)
+
+  const { id } = user;
 
   try {
-    const secret = process.env.SECRET;
 
-    console.log(secret)
-    const token = jwt.sign({ id: user._id }, secret);
-    
-    res.status(200).json({msg: `Autenticação de ${email} foi realizada com sucesso`, token});
+    res.json({
+      user: {
+        id,
+        email
+      },
+      token: jwt.sign({ id }, process.env.SECRET,{
+        expiresIn: '1h'
+      })  
+    });
     
   } catch (err) {
-    console.log(err)
     res.status(500).json({msg: 'Algo deu errado, tente novamente mais tarde!'});
   };
 };

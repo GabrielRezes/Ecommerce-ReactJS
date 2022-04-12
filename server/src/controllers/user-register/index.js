@@ -1,5 +1,5 @@
 const User = require('../../models/User');
-const bcrypt = require('bcrypt');
+const { createPasswordHash } = require('../../services/auth');
 
 module.exports = async ( req, res ) => {
   const { name, email, password, confirmpassword } = req.body;
@@ -13,13 +13,12 @@ module.exports = async ( req, res ) => {
 
   if(userExists) return res.status(422).json({msg: 'Por favor, utilize outro email'});
   
-  const salt = await bcrypt.genSalt(12);
-  const passwordHash = await bcrypt.hash(password, salt);
+  const passwordBcrypt = await createPasswordHash(password)
 
   const user = new User({
     name,
     email,
-    password: passwordHash
+    password: passwordBcrypt
   });
 
   try {
