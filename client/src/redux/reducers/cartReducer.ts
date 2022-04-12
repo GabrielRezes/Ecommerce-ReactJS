@@ -1,4 +1,4 @@
-import { PropsProduct } from '../../types';
+import { PropsProduct, PropsProductCart } from '../../types';
  
 interface PropsAction  {
   type: string,
@@ -12,39 +12,36 @@ export default(state:PropsProduct[] = [], action:Action) => {
 
   switch(action.type){
     case 'ADD_PRODUCT':
-      let productFound:number = state.findIndex((prod:PropsProduct) => prod.id === action.payload.id)
 
-      if (productFound < 0 ) {
-        action.payload.qnt = 1;
-        state = [ ...state, action.payload ];
-
-      } else {
-        state = state.map((prod:PropsProduct) => {
-          if(prod.id === action.payload.id) {
-            prod.qnt += 1; 
-          };
-          return prod;
-        })
-      };
-
-      return state;
+      let index = state.findIndex((product:PropsProduct) => product.id === action.payload.id)
+  
+      if(index === -1) {
+        action.payload.qnt = 1
+        return state =  [...state, action.payload ]
+      }
+      
+      return state.map((product:PropsProduct) => {
+        if(product.id === action.payload.id){
+          product.qnt += 1;
+        };           
+        return product;
+      })
 
     case 'REMOVE_PRODUCT':
       if(state.length === 0) return state;
 
-      let product = state.find((prod:PropsProduct) => prod.id === action.payload.id);
+      let product = state.find((product: PropsProduct) => product.id === action.payload.id);
 
-      if(product?.qnt === 1){
-        return  state = state.filter((prod:PropsProduct) => prod.id !== action.payload.id);
+      if(product?.qnt === 1) {
+        return state.filter((product: PropsProduct) => product.id !== action.payload.id);
+      }
 
-      } else {
-        return state = state.map((prod:PropsProduct) => {
-          if(prod.id === action.payload.id) {
-            prod.qnt -= 1; 
-          };
-          return prod;
-        })
-      } 
+      return state.map((product: PropsProduct) => {
+        if(product.id === action.payload.id){
+          product.qnt -= 1;
+        };           
+        return product;
+      })
 
     default :
       return state  ;
