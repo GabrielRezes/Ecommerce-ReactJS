@@ -3,7 +3,7 @@ export type PropsProduct = {
   name: string,
   price: string,
   img: string
-  qnt?: number;
+  qnt?: number
 };
 
 export type Login =  {
@@ -11,7 +11,12 @@ export type Login =  {
   email: string
 }; 
 
+export type Cart = {
+  cart: PropsProduct[] | any
+}
+
 export interface PropsProductComponent {
-  add: CallableFunction,
+  onAdd: CallableFunction,
+  onRemove: CallableFunction,
   products: PropsProduct[]
 };
