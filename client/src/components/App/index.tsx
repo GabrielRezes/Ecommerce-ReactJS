@@ -1,5 +1,5 @@
 import AppRoutes from '../../routes/Routes';
-import Header from '../Header/Header';
+import Header from '../Header';
 
 import '../../styles/global.scss';
 

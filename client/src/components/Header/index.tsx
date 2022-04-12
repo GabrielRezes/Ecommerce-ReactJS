@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import CartIcon from '../CartIcon/CartIcon';
-import Logo from '../Logo/Logo';
+import CartIcon from '../CartIcon';
+import Logo from '../Logo';
 
 import { BiMenu, BiMenuAltRight } from 'react-icons/bi';
 import useSizeWindow from '../../hooks/useSizeWindow';
