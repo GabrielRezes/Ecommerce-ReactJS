@@ -7,12 +7,12 @@ import { PropsProductComponent } from '../../types';
 import './productsCarousel.scss';
 
 
-export default function ProductsCarousel ({ products, onAdd, onRemove }: PropsProductComponent) {
+export default function ProductsCarousel ({ product, onAdd, onRemove }: PropsProductComponent) {
   const [ currProduct, setCurrProduct ] = useState<number>(0);
 
   const handleClick = (event: any) => {
     if(event.target.id === 'previous' && currProduct > 0) return setCurrProduct(currProduct - 1);
-    if(event.target.id === 'next' && currProduct < products.length - 1) return setCurrProduct(currProduct + 1);
+    if(event.target.id === 'next' && currProduct < product.length - 1) return setCurrProduct(currProduct + 1);
   };
 
   return(
@@ -23,11 +23,11 @@ export default function ProductsCarousel ({ products, onAdd, onRemove }: PropsPr
       </div>
   
       <li className='card-product'>
-          <span className='name-product'>{products[currProduct].name}</span>
-          <span className='price-product'>{products[currProduct].price}</span>
-          <img className='img-product' src={products[currProduct].img}/>
+          <span className='name-product'>{product[currProduct].name}</span>
+          <span className='price-product'>{product[currProduct].price}</span>
+          <img className='img-product' src={product[currProduct].image}/>
           <Button 
-            onClick={() => onAdd(products[currProduct])} 
+            onClick={() => onAdd(product[currProduct])} 
             text="Adicionar ao carrinho" 
             variant='primary'
           />

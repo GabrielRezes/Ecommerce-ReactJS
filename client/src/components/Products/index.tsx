@@ -4,15 +4,16 @@ import { PropsProductComponent, PropsProduct } from '../../types';
 import './products.scss';
 
 
-export default function Products ({ products, onAdd, onRemove }: PropsProductComponent) {
+export default function Products ({ product, onAdd, onRemove }: PropsProductComponent) {
+
   return (
       <ul className="products">
-        {products.map((product: PropsProduct, index: number) => {
+        {product.map((product: PropsProduct, index: number) => {
           return(
             <li className="card-product" key={index}>
               <span className="name-product">{product.name}</span>
               <span className="price-product">{product.price}</span>
-              <img className="img-product" src={product.img}/>
+              <img className="img-product" src={product.image}/>
               <Button 
                 onClick={() => onAdd(product)} 
                 text="Adicionar ao carrinho" 
