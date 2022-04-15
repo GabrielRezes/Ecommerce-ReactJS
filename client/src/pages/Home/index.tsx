@@ -8,7 +8,6 @@ import TitlePage from '../../components/TitlePage';
 import Products from '../../components/Products';
 
 import { PropsProduct } from '../../types';
-import { productList } from '../../mocks/products';
 import useSizeWindow from '../../hooks/useSizeWindow';
 
 import { getProducts } from '../../services/api';
@@ -20,16 +19,15 @@ export default function Home () {
   const { products }: any = useSelector(store => store);
   
   const dispatch = useDispatch();
-  const { isMobile } = useSizeWindow()
+  const { isMobile } = useSizeWindow();
 
-  useEffect(() => document.title = 'Ecommerce', [])
+  useEffect(()  => {document.title = 'Home'}, []);
 
   const loadProducts = async () => {
     try {
       const response = await getProducts();
       dispatch(setProducts(response.data));
     } catch (err) {
-      console.log(err)
       setError(true);
     } finally {
       dispatch(setLoading(false));
@@ -40,8 +38,7 @@ export default function Home () {
     if(!products.catalog.length) {
       loadProducts();
     }
-  }, [products.catalog]);
-
+  }, []);
 
   const handleAddProduct = (product : PropsProduct) =>  {
     dispatch(addProductToCart(product));
@@ -53,11 +50,11 @@ export default function Home () {
 
   if(error) {
     return <div className='error'>Erro ao recuperar dados</div>
-  }
+  };
 
-  if(products.isLoadingProducts) {
+  if(products.isLoadingProducts || !products.catalog.length) {
     return <div className='loading'>Carregando...</div>
-  }
+  };
 
   return(
     <section className="container">
