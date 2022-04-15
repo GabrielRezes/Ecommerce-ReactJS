@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addProductAction, removeProductAction } from '../../redux/actions/products';
-import { PropsProduct, Cart } from '../../types';
+import { addProductToCart, removeProductToCart } from '../../redux/actions/cartActions';
+import { PropsProduct } from '../../types';
 
 import './cartList.scss';
-
-
 
 export default function CartList () {
 
@@ -14,26 +12,28 @@ export default function CartList () {
   const [ amount, setAmount ] = useState<number>(0);
 
   useEffect(() => {
-    let total = cart.reduce((acc:number, curr:PropsProduct) => {
-      let price = (Number(curr.price.replace(/[^0-9,]/g, ''))); 
-       return acc + price * curr.qnt; 
-    }, 0).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
-
-
+    let total = cart.products.reduce((acc:number, curr:PropsProduct) => {
+       return acc + (curr.price * curr.qnt); 
+      }, 0).toLocaleString('pt-br',{currency: 'BRL'});
 
     setAmount(total); 
-  },[cart])
+  },[cart.products]);
+
+
+  if(!cart.products.length) {
+    return <div className='error'>Seu carrinho esta vazio!</div>
+  }
 
   return (
     <div className="container-cart">
       <ul className="list">
-      <h2> Total:{amount}</h2> 
-        {cart.map((product:PropsProduct, index:number) => {
+      <h2> Total:  R$ {amount}</h2> 
+        {cart.products.map((product:PropsProduct, index:number) => {
           return (
             <li className="card" key={index}>
 
               <div className="product">
-                <img src={product.img}/>
+                <img src={product.image}/>
                 <p>{product.name}</p>
               </div>
 
@@ -41,19 +41,18 @@ export default function CartList () {
                 <p className="name-product">{product.price}</p>
                 <div className="qnt-product">
                   <button 
-                    onClick={() => dispatch(removeProductAction(product))} 
+                    onClick={() => dispatch(removeProductToCart(product))} 
                     className="btn"> - 
                   </button>
                   
                     <span>{product.qnt}</span>
                   
                   <button 
-                    onClick={() => dispatch(addProductAction(product))} 
+                    onClick={() => dispatch(addProductToCart(product))} 
                     className="btn"> + 
                   </button>
                 </div>  
               </div>
-
             </li> 
           )
         })}
