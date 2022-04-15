@@ -1,8 +1,8 @@
 export type PropsProduct = {
   id: number,
   name: string,
-  price: string,
-  img: string
+  price: number,
+  image: string
   qnt?: number
 };
 
@@ -11,12 +11,18 @@ export type Login =  {
   email: string
 }; 
 
-export type Cart = {
-  cart: PropsProduct[] | any
+export interface PropsCartReducer {
+  products: PropsProduct[] | [],
+  isLoadingGetProducts: boolean
+}
+
+export interface PropsProductReducer {
+  catalog: PropsProduct[] | [],
+  isLoadingProducts: boolean
 }
 
 export interface PropsProductComponent {
   onAdd: CallableFunction,
   onRemove: CallableFunction,
-  products: PropsProduct[]
+  product: PropsProduct[]
 };
