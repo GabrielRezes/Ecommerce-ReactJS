@@ -24,3 +24,36 @@ body {
   align-items: center;
 }
 
+.error {
+  margin-top: 30px;
+  align-self: center
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  gap: 20px;  
+  margin-top: 30px;
+
+  &::after {
+    content: " ";
+    // display: block;
+    width: 30px;
+    height: 30px;
+    // margin: 8px;
+    border-radius: 50%;
+    border: 3px solid $dark;
+    border-color: $dark transparent $dark transparent;
+    animation: rotate 1.2s linear infinite;
+  }
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
