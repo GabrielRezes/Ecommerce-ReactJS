@@ -9,9 +9,8 @@ type Action = PropsAction
 
 const initialState = {
   catalog: [],
-  isLoadingProducts: true
+  isLoadingProducts: false
 };
-
 
 export default(state:PropsProductReducer = initialState, action:Action) => {
   switch(action.type) {
