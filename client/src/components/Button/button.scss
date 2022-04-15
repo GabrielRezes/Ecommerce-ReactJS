@@ -14,25 +14,20 @@
   transition: 150ms all ease; 
   border: none;
   cursor: pointer;
+  width: min(200px, 700px);
 
   box-shadow: 2px 2px 2px $grey-light; 
 
   &:active {
-    opacity: 90%;
+    opacity: 85%;
   }
 }
 
 .secondary {
-  background: $grey;
+  background: $green;
 
   &:hover {
-    border: 2px solid $grey;
     cursor: pointer;
-  }
-
-  &:active {
-    transform: translateY(2px);
-
   }
 }
 

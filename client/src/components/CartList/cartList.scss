@@ -7,13 +7,29 @@
     width: 290px;
     width: min(90%);
     margin-top: 15px;
-    // padding: 10px 0 0 0;
-    // background-color: red;
 
     .list {
       list-style-type: none;
       padding: 20px 0;
       width: 600px;
+
+      .container-amount {
+        display: flex;
+        justify-content:space-between;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+
+        .amount {
+          border: 1px solid $blue;
+          padding: 10px;  
+          background: $blue;
+          color: $light; 
+          border-radius: 15px;
+          width: 250px;
+          text-align: center;
+        }
+      }
 
       .card {
         display: flex;
@@ -78,4 +94,14 @@
         }
       }
     }
+}
+
+@media(min-width: $device-md) {
+  .container-cart{
+    .list{
+      .container-amount{
+        flex-direction: row;
+      }
+    }
+  }
 }
