@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import Title from '../../components/TitlePage';
-import CartList from '../../components/CartList';
+import CartList from '../../components/CartList/';
 
 import '../../styles/global.scss';
 

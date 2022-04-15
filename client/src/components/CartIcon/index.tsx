@@ -11,15 +11,20 @@ export default function CartIcon () {
   const navigate = useNavigate();
 
   useEffect(() => {
-    let total = cart.reduce((acc: any, cur: any) => {
-      return acc + cur.qnt;
-    },0);
 
-    setTotalProducts(total);
+    if(cart.products.length){
+      let total = cart.products.reduce((acc: any, cur: any) => {
+        return acc + cur.qnt;
+      },0);
+
+      setTotalProducts(total);
+    }
   }, [cart]);
 
+  console.log('cartIcon:', cart)
+
   const toCart = () => {
-    navigate('./cart');
+    navigate('./cart'); 
   };
 
   return (
