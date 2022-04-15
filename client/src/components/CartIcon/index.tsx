@@ -4,7 +4,6 @@ import { RiShoppingCart2Fill } from 'react-icons/ri';
 import { useNavigate } from 'react-router-dom';
 import './cartIcon.scss';
 
-
 export default function CartIcon () {
   const { cart }: any  = useSelector(store => store);
   const [ totalProducts, setTotalProducts ] = useState<number>(0);
@@ -21,14 +20,8 @@ export default function CartIcon () {
     }
   }, [cart]);
 
-  console.log('cartIcon:', cart)
-
-  const toCart = () => {
-    navigate('./cart'); 
-  };
-
   return (
-    <div className="container-cart-icon" onClick={toCart}> 
+    <div className="container-cart-icon" onClick={() => navigate('./cart')}> 
         <span>{totalProducts}</span>
         <RiShoppingCart2Fill style={{ color: "#0E0E0F", fontSize: "40px"}}/>
     </div>   
