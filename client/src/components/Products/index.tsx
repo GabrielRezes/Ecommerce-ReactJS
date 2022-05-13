@@ -5,10 +5,9 @@ import './products.scss';
 
 
 export default function Products ({ product, onAdd, onRemove }: PropsProductComponent) {
-
   return (
       <ul className="products">
-        {product.map((product: PropsProduct, index: number) => {
+        {product.map((product: any, index: number) => {
           return(
             <li className="card-product" key={index}>
               <span className="name-product">{product.name}</span>

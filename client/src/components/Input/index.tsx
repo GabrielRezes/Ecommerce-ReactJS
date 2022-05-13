@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-
 interface PropsInputComponent {
   labelText: string,
   inputName: string,
@@ -19,7 +17,7 @@ export default function Input ({labelText, inputName, inputType, value, setValue
           type={inputType} 
           className='input' 
           value={value} 
-          onChange={(event)  => setValue(event.target.value)}
+          onChange={(e) => setValue(e)}
         />  
       </label>     
   );

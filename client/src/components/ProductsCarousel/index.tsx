@@ -21,7 +21,7 @@ export default function ProductsCarousel ({ product, onAdd, onRemove }: PropsPro
         <IoChevronBack className='btn-change-product left' id='previous'/>
         <IoChevronForward className='btn-change-product right' id='next'/>
       </div>
-  
+
       <li className='card-product'>
           <span className='name-product'>{product[currProduct].name}</span>
           <span className='price-product'>{product[currProduct].price}</span>
