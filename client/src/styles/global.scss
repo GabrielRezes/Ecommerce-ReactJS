@@ -8,6 +8,10 @@
 body {
   font-family: 'Poppins', sans-serif;
   background: $base-color;
+
+  button, span:hover {
+    cursor: pointer;
+  }
 }
 
 .app {
@@ -39,10 +43,8 @@ body {
 
   &::after {
     content: " ";
-    // display: block;
     width: 30px;
     height: 30px;
-    // margin: 8px;
     border-radius: 50%;
     border: 3px solid $dark;
     border-color: $dark transparent $dark transparent;
