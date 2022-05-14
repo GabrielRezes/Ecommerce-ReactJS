@@ -1,25 +1,25 @@
-// imports
 const express = require('express');
 const database = require('./src/database');
 const auth = require('./src/middleware/auth');
+const cors = require('cors');
+
+const ProductController = require('./src/controllers/ProductController');
+const UserController = require('./src/controllers/UserController');
+
 
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
-const userRegister = require('./src/controllers/user-register');
-const userLogin = require('./src/controllers/user-login');
-const userCart = require('./src/controllers/user-cart');
+app.post('/auth/register', UserController.registerUser);
+app.post('/auth/login', UserController.login);
+app.get('/products', ProductController.getProducts);
+app.post('/product/create', ProductController.createProduct);
 
+// app.use(auth);
 
-app.post('/auth/register', async (req, res) => userRegister(req, res));
-
-app.post('/auth/login', async(req, res) => userLogin(req, res));
-
-app.use(auth);
-
-app.get('/cart/:id', async (req, res) => userCart(req, res));
-
+app.get('/cart/:id', UserController.getCart);
 
 database(); 
 app.listen(3001, () => console.log(`App listening on port 3001`));
