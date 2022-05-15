@@ -1,5 +1,8 @@
-import { useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
+import { setLogin } from '../../redux/actions/userActions';
 
 import TitlePage from '../../components/TitlePage';
 import Button from '../../components/Button';
@@ -11,18 +14,11 @@ import { Toaster, toast } from 'react-hot-toast';
 import { validateEmail, validatePassword } from '../../utils/index';
 
 export default function Login () {
-
+  const { userInfo }:any = useSelector(store => store);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [ user, setUser ] = useState({
-    email: '',
-    password: '',
-  });
-
-  const [ status, setStatus ] = useState({
-    type: '',
-    message: ''
-  });
+  const [ user, setUser ] = useState({ email: '', password: '' });
 
   const handleChangeInputValue = (event:any) => {
      setUser({
@@ -32,8 +28,8 @@ export default function Login () {
   };
 
   const validadeData = () => {
-    if(!user.email) return setStatus({type:'error', message: 'Necessário preencher o campo email!'});
-    if(!user.password) return setStatus({type:'error', message: 'Necessário preencher o campo senha!'});
+    if(!user.email) return toast.error('Necessário preencher o campo email!');
+    if(!user.password) return toast.error('Necessário preencher o campo senha!');
     return true;
   };
 
@@ -50,16 +46,12 @@ export default function Login () {
         localStorage.setItem('token', JSON.stringify(data.token));
       }
 
-      setUser({email:'',password:''});
-      setStatus({type:'success', message:'Login com Sucesso!'});
-
+      dispatch(setLogin(data.user))
       toast.success('Login com Sucesso!');
 
       setTimeout(() => {navigate('/')}, 2000);
       
     } catch (err) {
-      setStatus({type:'error', message: 'Ocorreu um erro ao realizar o Login!'});
-
       toast.error('Ocorreu um erro ao realizar o Login!');
     };
   };
